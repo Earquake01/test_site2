@@ -395,6 +395,8 @@
     }
 
     .feature {
+      position: relative;
+      overflow: hidden;
       background: var(--cream);
       border-radius: var(--radius-md);
       padding: 1.75rem 1.5rem;
@@ -402,6 +404,32 @@
       transition: transform var(--transition), box-shadow var(--transition);
       border: 1px solid rgba(74, 49, 35, 0.05);
     }
+
+    /* Декоративный эмодзи на фоне каждой карточки подобрана по смыслу */
+    .feature::after {
+      position: absolute;
+      bottom: -16px;
+      right: -10px;
+      font-size: 5.5rem;
+      line-height: 1;
+      opacity: 0.09;
+      transform: rotate(10deg);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .feature > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature--games::after { content: '🎲'; }
+    .feature--coworking::after { content: '💻'; }
+    .feature--console::after { content: '🎮'; }
+    .feature--books::after { content: '📚'; }
+    .feature--drinks::after { content: '☕'; }
+    .feature--lounge::after { content: '🛋️'; }
 
     .feature:hover {
       transform: translateY(-6px);
@@ -1006,37 +1034,37 @@
         <p class="section-subtitle">Шесть причин остаться подольше — всё уже включено в тариф.</p>
 
         <div class="features__grid">
-          <article class="feature">
+          <article class="feature feature--games">
             <div class="feature__icon"><i class="fa-solid fa-chess-board" aria-hidden="true"></i></div>
             <h3>200+ настолок</h3>
             <p>От «Манчкина» и «Каркассона» до тяжёлых евро. Гейм-мастер подскажет правила.</p>
           </article>
 
-          <article class="feature">
+          <article class="feature feature--coworking">
             <div class="feature__icon"><i class="fa-solid fa-laptop" aria-hidden="true"></i></div>
             <h3>Коворкинг-зона</h3>
             <p>Стабильный Wi-Fi, розетки у каждого места и тихий угол для звонков.</p>
           </article>
 
-          <article class="feature">
+          <article class="feature feature--console">
             <div class="feature__icon"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
             <h3>Игровая приставка</h3>
             <p>PlayStation 5 с большим экраном — для тех, кто хочет размяться между партиями.</p>
           </article>
 
-          <article class="feature">
+          <article class="feature feature--books">
             <div class="feature__icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
             <h3>Книжная зона</h3>
             <p>Полки с фантастикой, нон-фикшном и комиксами. Можно читать на месте или обменять свою книгу.</p>
           </article>
 
-          <article class="feature">
+          <article class="feature feature--drinks">
             <div class="feature__icon"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
             <h3>Чай и кофе безлимит</h3>
             <p>Более 20 сортов чая, свежемолотый кофе, какао и печенье — всё включено в стоимость времени.</p>
           </article>
 
-          <article class="feature">
+          <article class="feature feature--lounge">
             <div class="feature__icon"><i class="fa-solid fa-couch" aria-hidden="true"></i></div>
             <h3>Лаунж с пледами</h3>
             <p>Мягкие диваны, торшеры, пледы и подушки. Идеально для долгих разговоров до ночи.</p>
